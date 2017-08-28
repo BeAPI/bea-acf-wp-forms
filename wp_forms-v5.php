@@ -19,7 +19,7 @@ class acf_field_wp_forms extends acf_field {
 	function __construct() {
 		// vars
 		$this->name     = 'wp_forms_field';
-		$this->label    = __( 'WP Forms' );
+		$this->label    = __( 'WPForms', 'wpforms' );
 		$this->category = __( "Relational", 'acf' ); // Basic, Content, Choice, etc
 		$this->defaults = array(
 			'allow_null' => 0
