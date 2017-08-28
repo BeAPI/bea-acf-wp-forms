@@ -1,7 +1,6 @@
 {
   "name": "bea/bea-acf-wp-forms",
   "description": "ACF field to select one or many WP Forms.",
-  "minimum-stability": "stable",
   "license": "GPL-2.0",
   "authors": [
     {
