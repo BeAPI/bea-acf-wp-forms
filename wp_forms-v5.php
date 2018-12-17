@@ -25,7 +25,7 @@ class acf_field_wp_forms extends acf_field {
 			'allow_null' => 0
 		);
 
-		if ( class_exists( 'WPForms' ) ) {
+		if ( function_exists( 'wpforms' ) ) {
 			$this->forms = wpforms()->form->get( '' );
 		}
 
