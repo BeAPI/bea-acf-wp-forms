@@ -27,8 +27,6 @@ class Main {
 	 * @since 1.0.0
 	 */
 	public function register_field_v5() {
-		include_once( sprintf( '%sfields/acf-base.php', BEA_ACF_WP_FORMS_DIR ) );
-
-		new ACF_Field_WP_Forms();
+		new Field();
 	}
 }

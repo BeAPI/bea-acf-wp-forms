@@ -1,6 +1,6 @@
 <?php namespace BEA\ACF_WP_Forms;
 
-class ACF_Field_WP_Forms extends \acf_field {
+class Field extends \acf_field {
 
 	/*
 	*  __construct
@@ -24,9 +24,7 @@ class ACF_Field_WP_Forms extends \acf_field {
 			'allow_null' => 0
 		);
 
-		if ( function_exists( 'wpforms' ) ) {
-			$this->forms = wpforms()->form->get( '' );
-		}
+		$this->forms = wpforms()->form->get( '' );
 
 		// do not delete!
 		parent::__construct();
