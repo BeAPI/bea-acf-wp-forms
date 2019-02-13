@@ -1,23 +1,26 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields: WP Forms Field
-Description: ACF field to select one or many WP Forms
-Version: 2.0.0
-Author: beapi
-Author URI: http://www.beapi.fr
-License: MIT
-License URI: http://opensource.org/licenses/MIT
-
-----
-
-Copyright 2017 BE API Technical team (human@beapi.fr)
-
-This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-*/
+ Plugin Name: Advanced Custom Fields: WP Forms Field
+ Version: 1.1.0
+ Plugin URI: https://github.com/BeAPI/bea-acf-wp-forms
+ Description: ACF field to select one or many WP Forms.
+ Author: Be API Technical team
+ Author URI: https://beapi.fr
+ Contributors: Maxime Culea, Léonard Phoumpakka
+ ----
+ Copyright 2018 Be API Technical team (human@beapi.fr)
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
 
 // don't load directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'BEA_ACF_WP_FORMS_VER_VERSION', '2.0.0' );
+define( 'BEA_ACF_WP_FORMS_VER_VERSION', '1.1.0' );
 define( 'BEA_ACF_WP_FORMS_VER_MIN_PHP_VERSION', '5.6' );
 
 // Plugin URL and PATH
@@ -38,7 +41,7 @@ define( 'BEA_ACF_WP_FORMS_PLUGIN_DIRNAME', basename( rtrim( dirname( __FILE__ ),
 if ( version_compare( PHP_VERSION, BEA_ACF_WP_FORMS_VER_MIN_PHP_VERSION, '<' ) ) {
 	require_once( BEA_ACF_WP_FORMS_DIR . 'compat.php' );
 	// possibly display a notice, trigger error
-	add_action( 'admin_init', array( 'BEA\PB\Compatibility', 'admin_init' ) );
+	add_action( 'admin_init', array( 'Compatibility', 'admin_init' ) );
 	// stop execution of this file
 	return;
 }
