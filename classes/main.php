@@ -23,8 +23,7 @@ class Main {
 	}
 
 	/**
-	 * Register WPforms for ACF v5.
-	 * @since 1.0.0
+	 * Register WP Forms for ACF v5
 	 */
 	public function register_field_v5() {
 		new Field();
