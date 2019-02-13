@@ -1,4 +1,4 @@
-BEA - ACF WP Forms / Add ACF field for WP Forms.
+BEA - ACF WP Forms / ACF field to select one or many WP Forms..
 
 Copyright 2017-2018 Be API and contributors
 
@@ -19,7 +19,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 This program incorporates work covered by the following copyright and
 permission notices:
 
-  BEA - ACF WP Forms / Add ACF field for WP Forms.
+  BEA - ACF WP Forms / ACF field to select one or many WP Forms..
 
   Copyright 2017-2018 Be API and contributors
 
