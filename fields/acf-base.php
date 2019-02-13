@@ -1,7 +1,6 @@
-<?php
+<?php namespace BEA\ACF_WP_Forms;
 
-class acf_field_wp_forms extends acf_field {
-
+class ACF_Field_WP_Forms extends \acf_field {
 
 	/*
 	*  __construct
@@ -16,7 +15,7 @@ class acf_field_wp_forms extends acf_field {
 	*  @return  n/a
 	*/
 
-	function __construct() {
+	public function __construct() {
 		// vars
 		$this->name     = 'wp_forms_field';
 		$this->label    = __( 'WPForms', 'wpforms' );
@@ -25,7 +24,7 @@ class acf_field_wp_forms extends acf_field {
 			'allow_null' => 0
 		);
 
-		if ( class_exists( 'WPForms' ) ) {
+		if ( function_exists( 'wpforms' ) ) {
 			$this->forms = wpforms()->form->get( '' );
 		}
 
@@ -67,7 +66,7 @@ class acf_field_wp_forms extends acf_field {
 	*  @return  n/a
 	*/
 
-	function render_field( $field ) {
+	public function render_field( $field ) {
 
 		if ( ! empty( $this->forms ) ) {
 			echo '<select id="wpforms-modal-select-form" name="' . $field['name'] . '">';
@@ -92,6 +91,3 @@ class acf_field_wp_forms extends acf_field {
 		}
 	}
 }
-
-// create field
-new acf_field_wp_forms();

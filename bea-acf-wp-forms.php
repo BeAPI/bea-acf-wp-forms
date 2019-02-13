@@ -2,32 +2,56 @@
 /*
 Plugin Name: Advanced Custom Fields: WP Forms Field
 Description: ACF field to select one or many WP Forms
-Version: 1.0.0
+Version: 2.0.0
 Author: beapi
 Author URI: http://www.beapi.fr
 License: MIT
 License URI: http://opensource.org/licenses/MIT
+
+----
+
+Copyright 2017 BE API Technical team (human@beapi.fr)
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-
-function include_field_types_wp_forms( $version ) {
-	include_once( 'wp_forms-v5.php' );
+// don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
 }
 
-add_action( 'acf/include_field_types', 'include_field_types_wp_forms' );
+// Plugin constants
+define( 'BEA_ACF_WP_FORMS_VER_VERSION', '2.0.0' );
+define( 'BEA_ACF_WP_FORMS_VER_MIN_PHP_VERSION', '5.6' );
 
-//Added to check if WP Forms is installed on activation.
-function wpf_activate() {
-	if ( class_exists( 'WPForms' ) ) {
-		return true;
-	} else {
-		$html = '<div class="error">';
-		$html .= '<p>';
-		$html .= _e( 'Warning: WP Forms is not installed or activated. This plugin does not function without WP Forms!' );
-		$html .= '</p>';
-		$html .= '</div>';
-		echo $html;
+// Plugin URL and PATH
+define( 'BEA_ACF_WP_FORMS_URL', plugin_dir_url( __FILE__ ) );
+define( 'BEA_ACF_WP_FORMS_DIR', plugin_dir_path( __FILE__ ) );
+define( 'BEA_ACF_WP_FORMS_MAIN_FILE_DIR', __FILE__ );
+define( 'BEA_ACF_WP_FORMS_PLUGIN_DIRNAME', basename( rtrim( dirname( __FILE__ ), '/' ) ) );
+
+// Check PHP min version
+if ( version_compare( PHP_VERSION, BEA_ACF_WP_FORMS_VER_MIN_PHP_VERSION, '<' ) ) {
+	require_once( BEA_ACF_WP_FORMS_DIR . 'compat.php' );
+	// possibly display a notice, trigger error
+	add_action( 'admin_init', array( 'BEA\PB\Compatibility', 'admin_init' ) );
+	// stop execution of this file
+	return;
+}
+
+/** Autoload all the things \o/ */
+require_once BEA_ACF_WP_FORMS_DIR . 'autoload.php';
+
+add_action( 'plugins_loaded', 'bea_acf_wp_forms_load', 100 );
+function bea_acf_wp_forms_load() {
+	$requirements = \BEA\ACF_WP_Forms\Requirements::get_instance();
+	if ( ! $requirements->check_requirements() ) {
+		return;
 	}
-}
 
-register_activation_hook( __FILE__, 'wpf_activate' );
+	\BEA\ACF_WP_Forms\Main::get_instance();
+}
