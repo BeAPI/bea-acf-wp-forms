@@ -1,6 +1,4 @@
-<?php namespace BEA\ACF_WP_Forms;
-
-class Compatibility {
+<?php class Compatibility {
 	/**
 	 * admin_init hook callback
 	 *
