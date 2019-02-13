@@ -3,7 +3,8 @@
 # BEA - ACF WP Forms
 
 Add an ACF field to choose existing WP Forms.
-Let's say you want to display a unique WP Form into a specific page. Create an ACF Field to select beetween available WP Forms from your site, then display it using the helper of custom code.
+
+Let's say you want to display a unique WP Form into a specific page. Create an ACF Field to select among available WP Forms from your site, then display it using the helper of with custom code.
 
 # Installation
 
