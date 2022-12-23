@@ -44,5 +44,5 @@ trait Singleton {
 	 *
 	 * @return void
 	 */
-	final private function __wakeup() {}
+	final public function __wakeup() {}
 }
