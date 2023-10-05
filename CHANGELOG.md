@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.2 - 5 Oct 2023
+* Add return to methods, update doc 
+
 ## 1.1.1 - 29 Sep 2023
 * Update Singleton to be compatible with PHP8.0
 
