@@ -64,9 +64,9 @@ class Field extends \acf_field {
 
 	public function render_field( $field ) {
 
-		$this->forms = wpforms()->form->get( '' );
+		$forms = wpforms()->form->get( '' );
 
-		if ( empty( $this->forms ) ) {
+		if ( empty( $forms ) ) {
 			echo '<p>';
 			printf( __( 'Whoops, you haven\'t created a form yet. Want to <a href="%s">give it a go</a>?', 'wpforms' ), admin_url( 'admin.php?page=wpforms-builder' ) );
 			echo '</p>';
@@ -79,7 +79,7 @@ class Field extends \acf_field {
 		if ( $field['allow_null'] ) {
 			echo '<option value="">' . __( '- Select a form -', 'bea-wp-forms' ) . '</option>';
 		}
-		foreach ( $this->forms as $form ) {
+		foreach ( $forms as $form ) {
 			$selected = '';
 			if ( ( is_array( $field['value'] ) && in_array( $form->ID, $field['value'], false ) )
 			     || (int) $field['value'] === (int) $form->ID
