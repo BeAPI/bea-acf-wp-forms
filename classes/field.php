@@ -2,6 +2,8 @@
 
 class Field extends \acf_field {
 
+	protected $wp_forms;
+
 	/*
 	*  __construct
 	*
@@ -15,7 +17,7 @@ class Field extends \acf_field {
 	*  @return  n/a
 	*/
 
-	public function __construct() {
+	public function __construct( $wp_forms ) {
 		// vars
 		$this->name     = 'wp_forms_field';
 		$this->label    = __( 'WPForms', 'wpforms' );
@@ -23,6 +25,8 @@ class Field extends \acf_field {
 		$this->defaults = array(
 			'allow_null' => 0
 		);
+
+		$this->wp_forms = $wp_forms;
 
 		// do not delete!
 		parent::__construct();
@@ -64,9 +68,7 @@ class Field extends \acf_field {
 
 	public function render_field( $field ) {
 
-		$forms = wpforms()->form->get( '' );
-
-		if ( empty( $forms ) ) {
+		if ( empty( $this->wp_forms ) ) {
 			echo '<p>';
 			printf( __( 'Whoops, you haven\'t created a form yet. Want to <a href="%s">give it a go</a>?', 'wpforms' ), admin_url( 'admin.php?page=wpforms-builder' ) );
 			echo '</p>';
@@ -79,7 +81,7 @@ class Field extends \acf_field {
 		if ( ! empty( $field['allow_null'] ) ) {
 			echo '<option value="">' . __( '- Select a form -', 'bea-wp-forms' ) . '</option>';
 		}
-		foreach ( $forms as $form ) {
+		foreach ( $this->wp_forms as $form ) {
 			$selected = '';
 			if ( ( is_array( $field['value'] ) && in_array( $form->ID, $field['value'], false ) )
 			     || (int) $field['value'] === (int) $form->ID

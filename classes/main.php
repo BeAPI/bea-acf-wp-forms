@@ -6,6 +6,8 @@ class Main {
 	 */
 	use Singleton;
 
+	protected $wp_forms;
+
 	protected function init() {
 		// Plugin's own translations
 		add_action( 'init', [ $this, 'init_translations' ] );
@@ -26,6 +28,9 @@ class Main {
 	 * Register WP Forms for ACF v5
 	 */
 	public function register_field_v5() {
-		new Field();
+		if ( ! isset( $this->wp_forms ) ) {
+			$this->wp_forms = wpforms()->form->get( '' );
+		}
+		new Field( $this->wp_forms );
 	}
 }
