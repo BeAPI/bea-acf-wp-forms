@@ -74,9 +74,9 @@ class Field extends \acf_field {
 			return;
 		}
 
-		echo '<select id="wpforms-modal-select-form" name="' . $field['name'] . '">';
+		echo '<select id="wpforms-modal-select-form" name="' . esc_attr( $field['name'] ) . '">';
 		// Check if we're allowing an empty form. If so, create a default option
-		if ( $field['allow_null'] ) {
+		if ( ! empty( $field['allow_null'] ) ) {
 			echo '<option value="">' . __( '- Select a form -', 'bea-wp-forms' ) . '</option>';
 		}
 		foreach ( $forms as $form ) {
@@ -86,7 +86,7 @@ class Field extends \acf_field {
 			) {
 				$selected = ' selected';
 			}
-			printf( '<option value="%d" %s>%s</option>', $form->ID, $selected, esc_html( $form->post_title ) );
+			printf( '<option value="%d" %s>%s</option>', esc_attr( $form->ID ), esc_attr( $selected ), esc_html( $form->post_title ) );
 		}
 		echo '</select><br>';
 	}
