@@ -2,8 +2,6 @@
 
 class Field extends \acf_field {
 
-	protected $forms;
-
 	/*
 	*  __construct
 	*
@@ -22,9 +20,9 @@ class Field extends \acf_field {
 		$this->name     = 'wp_forms_field';
 		$this->label    = __( 'WPForms', 'wpforms' );
 		$this->category = __( "Relational", 'acf' ); // Basic, Content, Choice, etc
-		$this->defaults = [
+		$this->defaults = array(
 			'allow_null' => 0
-		];
+		);
 
 		// do not delete!
 		parent::__construct();
