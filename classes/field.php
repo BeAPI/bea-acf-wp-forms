@@ -22,9 +22,9 @@ class Field extends \acf_field {
 		$this->name     = 'wp_forms_field';
 		$this->label    = __( 'WPForms', 'wpforms' );
 		$this->category = __( "Relational", 'acf' ); // Basic, Content, Choice, etc
-		$this->defaults = [
+		$this->defaults = array(
 			'allow_null' => 0
-		];
+		);
 
 		// do not delete!
 		parent::__construct();
@@ -41,10 +41,10 @@ class Field extends \acf_field {
 			'label'   => __( 'Allow Null?', 'acf' ),
 			'type'    => 'radio',
 			'name'    => 'allow_null',
-			'choices' => [
+			'choices' => array(
 				1 => __( 'Yes', 'acf' ),
 				0 => __( 'No', 'acf' ),
-			],
+			),
 			'layout'  => 'horizontal'
 		] );
 	}
