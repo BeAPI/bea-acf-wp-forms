@@ -17,16 +17,14 @@ class Field extends \acf_field {
 	*  @return  n/a
 	*/
 
-	public function __construct( $wp_forms ) {
+	public function __construct() {
 		// vars
 		$this->name     = 'wp_forms_field';
 		$this->label    = __( 'WPForms', 'wpforms' );
 		$this->category = __( "Relational", 'acf' ); // Basic, Content, Choice, etc
-		$this->defaults = array(
+		$this->defaults = [
 			'allow_null' => 0
-		);
-
-		$this->wp_forms = $wp_forms;
+		];
 
 		// do not delete!
 		parent::__construct();
@@ -67,6 +65,10 @@ class Field extends \acf_field {
 	*/
 
 	public function render_field( $field ) {
+
+		if ( ! isset( $this->wp_forms ) ) {
+			$this->wp_forms = wpforms()->form->get( '' );
+		}
 
 		if ( empty( $this->wp_forms ) ) {
 			echo '<p>';

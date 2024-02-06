@@ -28,9 +28,6 @@ class Main {
 	 * Register WP Forms for ACF v5
 	 */
 	public function register_field_v5() {
-		if ( ! isset( $this->wp_forms ) ) {
-			$this->wp_forms = wpforms()->form->get( '' );
-		}
 		new Field( $this->wp_forms );
 	}
 }
