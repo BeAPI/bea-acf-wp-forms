@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3 - 7 Feb 2024
+* Update method to call wpforms on render
+* Escape values
+
 ## 1.1.2 - 5 Oct 2023
 * Add return to methods, update doc 
 

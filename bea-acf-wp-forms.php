@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Advanced Custom Fields: WP Forms Field
- Version: 1.1.2
+ Version: 1.1.3
  Plugin URI: https://github.com/BeAPI/bea-acf-wp-forms
  Description: ACF field to select one or many WP Forms.
  Author: Be API Technical team
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'BEA_ACF_WP_FORMS_VER_VERSION', '1.1.2' );
+define( 'BEA_ACF_WP_FORMS_VER_VERSION', '1.1.3' );
 define( 'BEA_ACF_WP_FORMS_VER_MIN_PHP_VERSION', '5.6' );
 
 // Plugin URL and PATH
