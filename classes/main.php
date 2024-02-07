@@ -6,8 +6,6 @@ class Main {
 	 */
 	use Singleton;
 
-	protected $wp_forms;
-
 	protected function init() {
 		// Plugin's own translations
 		add_action( 'init', [ $this, 'init_translations' ] );
