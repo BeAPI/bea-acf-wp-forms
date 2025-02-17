@@ -10,7 +10,7 @@ class Requirements {
 	 * @return bool
 	 */
 	public function check_requirements() {
-		if ( ! function_exists( 'acf' ) || ! function_exists( 'wpforms' ) ) {
+		if ( ! function_exists( 'acf' ) || ! defined ( 'WPFORMS_VERSION' ) ) {
 			$this->display_error( __( 'Advanced Custom Fields and WPForms are required plugins.', 'bea-acf-wp-forms' ) );
 
 			return false;
