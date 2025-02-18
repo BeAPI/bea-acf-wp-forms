@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.4 - 17 Feb 2024
+* FIX : compatibility with WP Forms 1.9.3.2.
+
 ## 1.1.3 - 7 Feb 2024
 * Update method to call wpforms on render
 * Escape values
